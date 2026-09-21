@@ -2,7 +2,6 @@
 {% from 'macros.j2' import
   checkout,
   setup_python,
-  install_python_deps,
   configure_git,
 with context %}
 
@@ -31,8 +30,6 @@ jobs:
       {{ checkout(repository="pulp/plugin_template", path="plugin_template", depth=0) | indent(6) }} %# "depth=0" is needed to run "git describe".
 
       {{ setup_python() | indent(6) }}
-
-      {{ install_python_deps(["gitpython", "packaging", "-r", "plugin_template/requirements.txt"]) | indent(6) }}
 
       {{ configure_git() | indent(6) }}
 
