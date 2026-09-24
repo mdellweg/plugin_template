@@ -1,17 +1,12 @@
 {% include 'header.j2' %}
 {% from 'macros.j2' import
-  set_env_vars,
   checkout,
   setup_python,
   setup_ruby,
-  display_logs,
   run_script,
-  set_secrets,
-  install_python_deps,
-  configure_git,
 with context %}
 ---
-name: "{{ plugin_app_label | camel }} Publish Release"
+name: "Publish Release"
 on:
   push:
     tags:
